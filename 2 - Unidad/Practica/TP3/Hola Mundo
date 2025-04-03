@@ -1,0 +1,18 @@
+	.data	# Se cargan las variables
+str:	.asciz "Hola mundo\n" # Hola mundo:D
+
+	.text	# Se escribe la logica
+main:
+	# Carga la cadena de texto en el registro a0
+	la a0, str	
+	
+	# Llamado al sistema
+	li a7, 4 	# Dice que imprima un String
+	ecall		# Llama al sistema
+	
+	li a7, 10	# Termina el programa
+	ecall		# Llama al sistema
+	
+	# En datasegment el Hola Mundo se almacena en forma inversa
+	# ¿Porque? ... 
+		
