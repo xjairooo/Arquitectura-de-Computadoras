@@ -1,18 +1,28 @@
 	.data	# Se cargan las variables
-str:	.asciz "Hola mundo\n" # Hola mundo:D
+str:	.asciz "Hola mundo\n" #  Cadena ASCIIZ (terminada en null)
 
 	.text	# Se escribe la logica
 main:
-	# Carga la cadena de texto en el registro a0
-	la a0, str	
+	la a0, str	# Cargamos la direccion del mensaje	
 	
-	# Llamado al sistema
-	li a7, 4 	# Dice que imprima un String
-	ecall		# Llama al sistema
+	li a7, 4 	# Carga inmediata del codigo de syscall (4 = print_string)
+	ecall		# Invocación al sistema operativo
 	
-	li a7, 10	# Termina el programa
-	ecall		# Llama al sistema
+	li a7, 10	# Codigo de syscall para exit (10)
+	ecall		# Finaliza la ejecución con código de retorno 0
 	
-	# En datasegment el Hola Mundo se almacena en forma inversa
-	# ¿Porque? ... 
+# En datasegment el Hola Mundo se almacena en forma inversa
+# ¿Porque? Se utiliza Little-endian es un formato de almacenamiento 
+# multibyte donde:
+
+	# -El byte menos significativo (LSB) se almacena en la direccion de
+	# memoria más baja
+
+	# -El byte mas significativo (MSB) se almacena en la direccion mas alta
+	
+	# Ejemplo:
+	#Byte en 0x10010003: 'a' (0x61) → Mas significativo de la palabra
+	#Byte en 0x10010002: 'l' (0x20)
+	#Byte en 0x10010001: 'o' (0x6F)
+	#Byte en 0x10010000: 'H' (0x48) → Menos significativo de la palabra
 		
