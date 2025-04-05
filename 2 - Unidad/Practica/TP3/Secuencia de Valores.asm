@@ -6,8 +6,8 @@
 	
 	.text
 main:	
-	# Se utiliza mv porque se utiliza 1 solo instruccion en cambio,
-	# li utiliza 2 instrucciones (lui y addi)
+	# Se utiliza mv porque se utiliza 1 solo instruccion
+	# en cambio,li utiliza 2 instrucciones (lui y addi)
 	# Es mas eficiente y x0 es un registro constante en zero
 	mv x3, x0  # x3 = 0 (forma optima)
 	mv x4, x0  # x4 = 0 
