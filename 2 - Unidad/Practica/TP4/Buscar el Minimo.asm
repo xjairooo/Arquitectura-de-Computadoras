@@ -1,6 +1,5 @@
 	.data
 arreglo: .word 36, 13, 21, 11, 75, 54, 23, 44, 34
-RES:	 .word 0, 0, 0, 0, 0, 0, 0, 0, 0	# Arreglo para el resultado
 MINIMO:	 .word 0
 
 .eqv TAMANIO, 9
