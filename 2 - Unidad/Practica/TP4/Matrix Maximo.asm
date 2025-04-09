@@ -1,11 +1,10 @@
-.data
+	.data
 matriz: .word 5, 3, 9, 2, 8, 1, 7, 4, 6
 MAX:    .space 12
 msg1:   .string "Matriz 3x3:\n"
 msg2:   .string "Maximos por fila:\n"
 
-.text
-.globl main
+	.text
 main:
     # Preparar direcciones
     la s0, matriz       # base de matriz (registro guardado)
