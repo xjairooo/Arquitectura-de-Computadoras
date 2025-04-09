@@ -1,6 +1,6 @@
 # Por Valor = pasa el contenido del dato y NO se puede modificar
 # NUM1 : 6 y NUM2: 7, se pasan esos datos
-# Por Referencia: pasa la direccion de esos datos y SI se puede modificar
+# Por Referencia: pasa la direccion de esos datos y SI se puede modificar	
 	.data
 NUM1: .word 6
 NUM2: .word 7
@@ -12,13 +12,10 @@ msg3: .string "\nResultado = "
 	.text
 
 main:
-    la t0, NUM1
-    lw a0, 0(t0)
+    la a0, NUM1
+    la a1, NUM2
 
-    la t0, NUM2
-    lw a1, 0(t0)
-
-    call MUL
+    call MUL_REF
 
     la t0, RES
     sw a2, 0(t0)
@@ -55,7 +52,9 @@ main:
     li a7, 10
     ecall
 
-# SUBRUTINA MUL (por valor, osea el contenido)
-MUL:
-    mul a2, a0, a1
+# SUBRUTINA MUL_REF (por referencia, osea la direccion de los valores)
+MUL_REF:
+    lw t0, 0(a0)
+    lw t1, 0(a1)
+    mul a2, t0, t1
     ret
