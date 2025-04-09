@@ -2,7 +2,6 @@
 A:	.word 20	# (numerador)
 B:	.word 4		# (denominador)
 
-	
 	.text
 main:
 	
