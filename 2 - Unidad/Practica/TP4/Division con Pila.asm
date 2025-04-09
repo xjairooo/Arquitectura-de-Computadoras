@@ -1,7 +1,7 @@
 	.data
 A:	.word 20	# (numerador)
 B:	.word 4		# (denominador)
-newline:	.asciz "\n"
+
 	
 	.text
 main:
